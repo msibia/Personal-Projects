@@ -42,7 +42,7 @@ def run_code():
 
     def on_message(client, userdata, message):
         
-        file_path = fr'C:Users\Admin\Downloads\{selected_option1} {selected_option2}.txt' #define file path
+        file_path = fr'..\Downloads\{selected_option1} {selected_option2}.txt' #define file path
         print("Message received: " + str(message.payload))
         with open(file_path,'a+') as f:
             f.write("Message received: " + str(message.payload) + "\n")
@@ -50,10 +50,10 @@ def run_code():
 
     Connected = False  # global variable for the state of the connection
 
-    broker_address = "192.168.201.12"  # Broker address
+    broker_address = {IP address}  # Broker address
     port = 1883  # Broker port
-    user = "leocancercare"  # Connection username
-    password = "LeOcC@Service"  # Connection password
+    user = {username}  # Connection username
+    password = {password}  # Connection password
 
     # set username and password
     client.username_pw_set(user, password=password)
@@ -77,8 +77,7 @@ root.geometry("300x400")
 #Create Dropdown Menu 1 to select Axis
 label1 = tk.Label(root, text="Select Axis")
 label1.place(x=10, y=10)
-options1 = ["ACS_X", "ACS_Y", "MCS_Rotation","ACS_Z Left","ACS_Z Right", "ACS_2Dof Left", 
-            "ACS_2Dof Right", "MCS_Pitch", "MCS_Roll", "CT_Tilt", "CT_Translation"] #CT axes need to be updated to actual axis names that will show up on the MQTT server. 
+options1 = [Enter drop down menu list]
 option_var1 = tk.StringVar(root)
 option_var1.set(options1[0])  # Set default option
 dropdown1 = tk.OptionMenu(root, option_var1, *options1)
@@ -88,7 +87,7 @@ option_var1.trace_add("write", handle_option1_selection)
 #Create Dropdown Menu 2 to select Topic
 label2 = tk.Label(root, text="Select Topic")
 label2.place(x=10, y=65)
-options2 = ["Position", "Velocity", "State", "Sensor_Raw", "Sensor_Offset", "numberOfMovements", "operation Time"]
+options2 = [Enter drop down menu list]
 option_var2 = tk.StringVar(root)
 option_var2.set(options2[0])  # Set default option
 dropdown2 = tk.OptionMenu(root, option_var2, *options2)
